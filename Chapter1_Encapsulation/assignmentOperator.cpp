@@ -28,5 +28,7 @@ int main()
     a2.f();
     std::cout << a.geta() << " "<< b.geta() << " " << a2.geta() << endl;
 
+    // Output: 11 9 10
+
     return 0;
 }
