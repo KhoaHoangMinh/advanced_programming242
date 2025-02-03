@@ -1,3 +1,4 @@
+// TODO: convert assignmentOperator.cpp to Java
 public class CppToJava {
     public static class A {
         protected int a;
@@ -5,8 +6,7 @@ public class CppToJava {
             a = 10;
         }
         public int f() {
-            a++;
-            return a;
+            return ++a;
         }
         public int getA() {
             return a;
@@ -15,8 +15,7 @@ public class CppToJava {
     public static class B extends A {
         @Override
         public int f() {
-            a--;
-            return a;
+            return --a;
         }
     }
     public static void main(String[] args) {
@@ -31,5 +30,7 @@ public class CppToJava {
         a2.f();
 
         System.out.println(a.getA() + " " + b.getA() + " " + a2.getA());
+
+        // Ouput 11 8 8
     }
 }
