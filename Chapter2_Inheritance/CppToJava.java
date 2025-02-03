@@ -32,5 +32,6 @@ public class CppToJava {
         System.out.println(a.getA() + " " + b.getA() + " " + a2.getA());
 
         // Ouput 11 8 8
+        // a2 is copied by reference
     }
 }
