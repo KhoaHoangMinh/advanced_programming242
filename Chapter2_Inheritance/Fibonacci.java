@@ -1,5 +1,5 @@
-public class Fibonanci {
-    // Determine if a number is Fibonan and find it's order
+public class Fibonacci {
+    // Determine if a number is Fibonacci and find it's order
     public static boolean isPerfectSquare(int n) {
         int s = (int) Math.sqrt(n);
         return s * s == n;
