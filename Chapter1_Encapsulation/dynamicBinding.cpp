@@ -4,32 +4,32 @@ using namespace std;
 class A {
 public:
   	int n;
-    int f1() {
+    virtual int f1() {
       	n += 4;
         int m = f2();
         return n + m + 1;
     }
-    int f2() {
+    virtual int f2() {
       	n += 1;
         return n;
     }
-    int f3() {
+    virtual int f3() {
     	f1();
         return n;
     }
 };
 class B : public A {
 public:
-	int f1() {
+	int f1() override {
 	n -= 4;
 	int m = f2();
 	return n - m;
 	}
-    int f2() {
+    int f2() override {
       	n += n;
         return n;
     }
-    int f3() {
+    int f3() override {
       	f2();
         return n;
     }
@@ -38,8 +38,9 @@ int main() {
 	cout << "Dynamic binding: " << endl;
   	A* b = new B();
     b->n = 4;
-    cout << b->f3() << endl;
-	cout << b->f1() << ' ' << b->f2() << endl;
+	// Resolved at runtime based on the type of object (B)
+    cout << b->f3() << endl;	// 9
+	cout << b->f1() << ' ' << b->f2() << endl;	// 0 0
 	cout << b->f2() << endl;
 	delete b;
 
