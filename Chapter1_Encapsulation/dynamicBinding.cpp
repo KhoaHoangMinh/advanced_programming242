@@ -21,9 +21,9 @@ public:
 class B : public A {
 public:
 	int f1() {
-          n -= 4;
-          int m = f2();
-          return n - m;
+	n -= 4;
+	int m = f2();
+	return n - m;
 	}
     int f2() {
       	n += n;
