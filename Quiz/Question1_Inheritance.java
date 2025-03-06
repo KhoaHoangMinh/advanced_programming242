@@ -1,4 +1,4 @@
-public class Question1 {
+public class Question1_Inheritance {
     public static class Employee{
         private String name;
         private double salary;
