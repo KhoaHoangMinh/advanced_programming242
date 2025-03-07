@@ -7,35 +7,46 @@ public class Fibonacci {
         return s * s == n;
     }
     public static boolean isFibo(int n) {
-        return isPerfectSquare(5 * n * n + 4)
-                || isPerfectSquare(5 * n * n - 4);
+        if(n < 0) return false;
+        if(n == 0 || n == 1) return true;
+        int a = 0, b = 1;
+        while(b < n) {
+            int temp = b;
+            b += a;
+            a = temp;
+        }
+        return b == n;
     }
     public static int findFiboIndex(int n) {
-        double fibo = 2.078087 * Math.log(n) + 1.672276;
-        return (int) Math.round(fibo);
+        if(n < 0) return -1;
+        if(n == 0) return 0;
+        if(n == 1) return 1;
+        int a = 0, b = 1, idx = 1;
+        while(b < n) {
+            int temp = b;
+            b += a;
+            a = temp;
+            idx++;
+        }
+        return (b == n) ? idx : -1;
     }
     public static int[] generateFibonacci(int n) {
         if(n == 0) {
-            int[] arr = new int[1];
-            arr[0] = 0;
-            return arr;
+            return new int[]{0};
         } else if(n == 1) {
-            int[] arr = new int[2];
-            arr[0] = 0;
-            arr[1] = 1;
-            return arr;
+            return new int[] {0, 1};
         } else {
-            int[] arr = new int[n + 1];
+            int[] arr = new int[n];
             arr[0] = 0;
             arr[1] = 1;
-
-            for(int i = 2; i <= n; i++) {
+            for(int i = 2; i < n; i++) {
                 arr[i] = arr[i - 1] + arr[i - 2];
             }
             return arr;
         }
 
     }
+
     public static void tc01(int n) {
         int[] fibo = new int[n];
         fibo[0] = 0;
@@ -52,22 +63,20 @@ public class Fibonacci {
         }
     }
     public static void tc02(int n) {
-        int[] arr = new int[n + 1];
         int[] fiboArr = generateFibonacci(n);
-        int[] idx = new int[n + 1];
-        for(int i = 0; i < n + 1; i++) {
-            arr[i] = i;
-        }
+        boolean[] checkArr = new boolean[n];
+        int[] idxArr = new int[n];
         System.out.println(Arrays.toString(fiboArr));
-        for(int i = 0; i < n + 1; i++) {
-            idx[i] = findFiboIndex(fiboArr[i]);
-
+        for(int i = 0; i < n; i++) {
+            checkArr[i] = isFibo(fiboArr[i]);
+            idxArr[i] = findFiboIndex(fiboArr[i]);
         }
-        System.out.println(Arrays.toString(idx));
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(checkArr));
+        System.out.println(Arrays.toString(idxArr));
     }
+
     public static void main(String[] args) {
-        int n = 10;
+        int n = 50;
         tc02(n);
     }
 }
