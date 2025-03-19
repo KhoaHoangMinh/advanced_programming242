@@ -9,6 +9,11 @@ class Singleton {
         if(singleInstance == null) {singleInstance = new Singleton();}
         return singleInstance;
     }
+    /*Thread safe Singleton:
+    * Singleton property is maintained in multithreaded environment.
+    * To make a singleton class thread safe, getInstance() method is made synchronized.
+    * Multiple threads can't access it simultaneously.
+    */
 }
 
 public class Singleton1 {
