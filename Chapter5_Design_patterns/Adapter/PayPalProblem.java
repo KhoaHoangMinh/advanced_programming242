@@ -29,11 +29,11 @@ class MoneyBookerAdapter implements Adapter {
 public class PayPalProblem {
     public static void main(String[] args) {
         PayPal payPal = new PayPal();
-        PayPalAdapter payPalAdapter = new PayPalAdapter(payPal);
+        Adapter payPalAdapter = new PayPalAdapter(payPal);
         payPalAdapter.pay(100000);
 
         MoneyBooker moneyBooker = new MoneyBooker();
-        MoneyBookerAdapter moneyBookerAdapter = new MoneyBookerAdapter(moneyBooker);
+        Adapter moneyBookerAdapter = new MoneyBookerAdapter(moneyBooker);
         moneyBookerAdapter.pay(5000);
     }
 }
