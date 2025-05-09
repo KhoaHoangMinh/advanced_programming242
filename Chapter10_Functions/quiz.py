@@ -16,7 +16,7 @@ def dot_product(A, B):
     return reduce(lambda x, y: x + y, map(lambda x: x[0] * x[1], zip(A, B)))
 
 def print_Hello():
-    print("Hello")
+    print("Khoa")
 
 if __name__ == '__main__':
     print(capitalize_words(['apple', 'banana', 'cherry']))
